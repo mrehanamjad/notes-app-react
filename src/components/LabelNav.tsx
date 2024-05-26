@@ -23,7 +23,7 @@ const LabelNav: React.FC <LabelNavProps>= ({ setShowLabelNav,showLabelNav }) => 
   }, [notes]);
 
   return (
-    <div className={`p-4 min-w-full rounded absolute  bg-gray-500 shadow-xl z-10 border-2 ${!showLabelNav && ""}`}>
+    <div className={`p-4 min-w-full rounded absolute  bg-gray-500 shadow-xl z-10 border-2 ${!showLabelNav && "hidden"}`}>
       <ul className="flex flex-col gap-1">
         <li
           onClick={(e) =>
