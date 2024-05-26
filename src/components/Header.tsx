@@ -35,7 +35,7 @@ const Header: React.FC = () => {
   return (
     <div className='h-14 w-full bg-gray-800 flex justify-between px-5 md:px-12 items-center font-bold text-2xl text-blue-400'>
       <div className="flex gap-1 " id='logo'>
-        <CgNotes className='mt-1' /> R_Notes
+        <CgNotes className='mt-1' /> R-Notes-App
       </div>
       <div>
         <button onClick={changeMode} className='p-2 hover:bg-gray-900  text-3xl font-extrabold m-1 rounded-lg'><TbSunMoon /></button>
