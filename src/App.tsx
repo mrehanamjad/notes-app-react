@@ -36,6 +36,7 @@ function App() {
       const jsonNotes = JSON.parse(prevNotes);
       setNotes(jsonNotes);
     }
+    setCurrentLabel("All")
   }, []);
 
   useEffect(() => {
