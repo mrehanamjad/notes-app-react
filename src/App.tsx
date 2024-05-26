@@ -13,7 +13,7 @@ interface NotesT {
 function App() {
   const [notes, setNotes] = useState<NotesT[]>([]);
   const [currentLabel, setCurrentLabel] = useState<string>("All");
-  const [toBeSeached, setToBeSeached] = useState("")
+  const [toBeSeached, setToBeSeached] = useState("");
 
   const addNote = (note: NotesT) => {
     setNotes((prev) => [note, ...prev]);
@@ -30,7 +30,7 @@ function App() {
   };
 
   useEffect(() => {
-    const prevNotes: string = localStorage.getItem("Notes") ?? "";
+    const prevNotes: string = localStorage.getItem("R_Notes") ?? "";
 
     if (prevNotes && prevNotes.length > 0) {
       const jsonNotes = JSON.parse(prevNotes);
@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     if (notes && notes.length > 0)
-      localStorage.setItem("Notes", JSON.stringify(notes));
+      localStorage.setItem("R_Notes", JSON.stringify(notes));
   }, [notes]);
 
   const setLabelFilterFunc = (label: string) => {
@@ -60,13 +60,17 @@ function App() {
         </h1>
       )}
       <div className="h-full w-full  grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 p-5 sm:p-10 lg:px-16">
-        {notes.map(
-          (note) =>
-            note.label.includes(currentLabel) && 
-              note.title.toLowerCase().includes(toBeSeached.toLowerCase()) && (
-              <NoteItem key={note.id} noteData={note} />
-            )
-        )}
+        {notes.map((note) => {
+          if (!note || !note.label) return null; // Defensive check
+          if (
+            note.label.includes(currentLabel) &&
+            note.title.toLowerCase().includes(toBeSeached.toLowerCase())
+          ) {
+            return <NoteItem key={note.id} noteData={note} />;
+          } else {
+            return null; // Optionally handle cases where note doesn't meet criteria
+          }
+        })}
       </div>
     </NotesProvider>
   );
