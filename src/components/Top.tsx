@@ -32,7 +32,7 @@ const Top: React.FC<TopProp> = ({setToBeSeached}) => {
           <MdLabel className="text-xl" /> Labels{" "}
           <CiCircleChevDown className="text-xl ml-1" />
         </button>
-        {showLabelNav && <LabelNav setShowLabelNav={setShowLabelNav} />}
+        <LabelNav setShowLabelNav={setShowLabelNav} showLabelNav={showLabelNav} />
       </div>
     </div>
   );

@@ -3,9 +3,10 @@ import { useNotesContext } from "../contexts";
 
 interface LabelNavProps {
     setShowLabelNav: (value: boolean | ((prev: boolean) => boolean)) => void;
+    showLabelNav:boolean
   }
 
-const LabelNav: React.FC <LabelNavProps>= ({ setShowLabelNav }) => {
+const LabelNav: React.FC <LabelNavProps>= ({ setShowLabelNav,showLabelNav }) => {
   const { notes, setLabelFilterFunc } = useNotesContext();
   const [labelFilterr, setLabelFilterr] = useState("");
   const [allLabels, setAllLabels] = useState<string[]>([]);
@@ -22,7 +23,7 @@ const LabelNav: React.FC <LabelNavProps>= ({ setShowLabelNav }) => {
   }, [notes]);
 
   return (
-    <div className="p-4 min-w-full rounded absolute  bg-gray-500 shadow-xl z-10 border-2">
+    <div className={`p-4 min-w-full rounded absolute  bg-gray-500 shadow-xl z-10 border-2 ${!showLabelNav && "hidden"}`}>
       <ul className="flex flex-col gap-1">
         <li
           onClick={(e) =>
