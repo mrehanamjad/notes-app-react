@@ -19,7 +19,7 @@ const Label: React.FC<LabelProps>= ({ setLabel,label }) => {
   return (
     <div
       title="Add Label"
-      className="hover:bg-blue-500  p-1 border-b-2 relative  text-md"
+      className="hover:border-blue-500  p-1 border-b-2 relative  text-md"
     >
       <MdLabel className="absolute top-1/2 left-1 -translate-y-1/2 " />
             <input
