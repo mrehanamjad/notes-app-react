@@ -7,7 +7,7 @@ interface TopProp{
 }
 
 const Top: React.FC<TopProp> = ({setToBeSeached}) => {
-  const [showLabelNav, setShowLabelNav] = useState(false);
+  const [showLabelNav, setShowLabelNav] = useState(true);
 
   return (
     <div className="w-full h-12  flex items-center justify-center gap-1 lg:px-[20%] sm:px-[10%] px-[2%] mt-4">
